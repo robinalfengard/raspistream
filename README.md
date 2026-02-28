@@ -106,15 +106,17 @@ sudo reboot
 
 ## 3. Update System
 sudo apt update && sudo apt upgrade -y
-4. Install Dependencies
+
+## 4. Install Dependencies
 sudo apt install -y python3-flask python3-opencv python3-picamera2
-5. Create Project Directory
+
+## 5. Create Project Directory
 mkdir -p ~/mjpeg-stream
 nano ~/mjpeg-stream/app.py
 
 Paste your Python script into app.py.
 
-6. Run the Server
+## 6. Run the Server
 python3 ~/mjpeg-stream/app.py
 
 Flask will bind to:
@@ -123,7 +125,7 @@ Flask will bind to:
 
 This makes it accessible from other devices on the same network.
 
-7. Access the Stream
+## 7. Access the Stream
 
 Find your Raspberry Pi IP:
 
@@ -133,12 +135,7 @@ Open in a browser (same network):
 
 http://<PI_IP>:5000/
 
-Health endpoint:
-
-http://<PI_IP>:5000/health
-8. Embed in HTML
-<img src="http://<PI_IP>:5000/" alt="Live Stream">
-9. Run Automatically at Boot (Optional)
+## 8. Run Automatically at Boot (Optional)
 
 Create a systemd service:
 
@@ -165,61 +162,63 @@ sudo systemctl daemon-reload
 sudo systemctl enable mjpeg-stream
 sudo systemctl start mjpeg-stream
 sudo systemctl status mjpeg-stream
-Troubleshooting
-Black Screen / No Camera
 
-Verify ribbon cable is properly seated
+## Troubleshooting
+# Black Screen / No Camera
 
-Ensure camera is enabled via raspi-config
+- Verify ribbon cable is properly seated
 
-Confirm compatible Raspberry Pi OS version
+- Ensure camera is enabled via raspi-config
 
-Slow Stream
+- Confirm compatible Raspberry Pi OS version
+
+# Slow Stream
 
 Try:
 
-Reducing resolution (e.g., 320x240)
+- Reducing resolution (e.g., 320x240)
 
-Lowering FPS
+- Lowering FPS
 
-Reducing JPEG_QUALITY
+- Reducing JPEG_QUALITY
 
-Multiple Viewers
+- Multiple Viewers
 
-The design is efficient because:
+# The design is efficient because:
 
-Only one capture thread runs
+- Only one capture thread runs
 
-All clients reuse the latest frame buffer
+- All clients reuse the latest frame buffer
 
-However, each client still consumes HTTP bandwidth.
+- However, each client still consumes HTTP bandwidth.
 
-Security Notice
+# Security Notice
 
 This server:
 
-Has no authentication
+- Has no authentication
 
-Uses plain HTTP
+- Uses plain HTTP
 
-Is intended for LAN usage only
+- Is intended for LAN usage only
 
-Do not expose it directly to the internet without:
+- Do not expose it directly to the internet without:
 
-Authentication
+- Authentication
 
-TLS (HTTPS)
+- TLS (HTTPS)
 
-Reverse proxy (e.g., Nginx)
+- Reverse proxy (e.g., Nginx)
 
-Firewall rules
+- Firewall rules
 
-File Structure
+# File Structure
 mjpeg-stream/
 │
 ├── app.py
 └── README.md
-Summary
+
+# Summary
 
 This project provides a lightweight, robust MJPEG streaming server using:
 
