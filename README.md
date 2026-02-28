@@ -104,19 +104,19 @@ Reboot:
 
 sudo reboot
 
-## 3. Update System
+# 3. Update System
 sudo apt update && sudo apt upgrade -y
 
-## 4. Install Dependencies
+# 4. Install Dependencies
 sudo apt install -y python3-flask python3-opencv python3-picamera2
 
-## 5. Create Project Directory
+# 5. Create Project Directory
 mkdir -p ~/mjpeg-stream
 nano ~/mjpeg-stream/app.py
 
 Paste your Python script into app.py.
 
-## 6. Run the Server
+# 6. Run the Server
 python3 ~/mjpeg-stream/app.py
 
 Flask will bind to:
@@ -125,7 +125,7 @@ Flask will bind to:
 
 This makes it accessible from other devices on the same network.
 
-## 7. Access the Stream
+# 7. Access the Stream
 
 Find your Raspberry Pi IP:
 
@@ -135,7 +135,7 @@ Open in a browser (same network):
 
 http://<PI_IP>:5000/
 
-## 8. Run Automatically at Boot (Optional)
+# 8. Run Automatically at Boot (Optional)
 
 Create a systemd service:
 
@@ -163,7 +163,7 @@ sudo systemctl enable mjpeg-stream
 sudo systemctl start mjpeg-stream
 sudo systemctl status mjpeg-stream
 
-## Troubleshooting
+# Troubleshooting
 # Black Screen / No Camera
 
 - Verify ribbon cable is properly seated
