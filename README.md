@@ -61,19 +61,6 @@ Returns an MJPEG stream:
 
 ---
 
-### `GET /health`
-
-Returns:
-
-
-200 OK
-ok
-
-
-Useful for health checks or monitoring.
-
----
-
 ## Configuration
 
 The following constants can be tuned:
@@ -116,7 +103,8 @@ Enable Camera
 Reboot:
 
 sudo reboot
-3. Update System
+
+## 3. Update System
 sudo apt update && sudo apt upgrade -y
 4. Install Dependencies
 sudo apt install -y python3-flask python3-opencv python3-picamera2
