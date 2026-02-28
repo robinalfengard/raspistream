@@ -120,11 +120,6 @@ def video_feed():
     return Response(generate_frames(), mimetype="multipart/x-mixed-replace; boundary=frame")
 
 
-@app.route("/health")
-def health():
-    return "ok", 200
-
-
 if __name__ == "__main__":
     threading.Thread(target=capture_loop, daemon=True).start()
     app.run(host="0.0.0.0", port=5000, threaded=True, use_reloader=False)
