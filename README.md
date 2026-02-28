@@ -106,7 +106,7 @@ The following constants can be tuned:
 
 ## 2. Enable Camera
 
-```bash
+bash
 sudo raspi-config
 
 Navigate to Interface Options
