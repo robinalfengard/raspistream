@@ -14,7 +14,6 @@ This application:
 - Serves the latest frame as an MJPEG stream over HTTP via Flask
 - Provides:
   - `/` → MJPEG video stream
-  - `/health` → health check endpoint
 - Automatically restarts the camera if frame capture stalls
 
 ---
